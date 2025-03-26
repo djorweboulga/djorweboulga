@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Développeur Web Fullstack spécialisé en PHP, Laravel, JavaScript">
+  <meta name="author" content="DJORWE BOULGA">
+  <meta name="robots" content="index, follow">
+  <title>Djorwe Boulga | Développeur Web Full-Stack</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="script" href="script.js" >
+</head>
+<body>
+    <!-- Navigation fixe en haut -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="index.html#propos">A propos</a></li>
+        <li><a href="index.html#services">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="devis.html">Obtenir un Devis</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  
+    <!-- Section Accueil avec image d’arrière-plan -->
+    <header id="home" class="hero">
+      <h1>Mon portfolio</h1>
+    </header>
+  
+    <div class="container">
+
+  
+  <!-- Galerie -->
+  <section class="portfolio-gallery">
+    <div class="container">
+        <h2 data-aos="fade-up" >Mes différents projets</h2>
+        <div class="gallery-grid">
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="100" >
+                <img src="projet-1.png" alt="">
+                <div class="overlay">
+                    <h3>Projet 1</h3>
+                    <p>Mon portfolio.</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="200" >
+                <img src="projet-2.png" alt="">
+                <div class="overlay">
+                    <h3>Projet 2</h3>
+                    <p>Site web d'hotel.</p>
+                </div>
+            </div>
+            <div class="gallery-item" data-aos="fade-up" data-aos-delay="300" >
+                <img src="projet-3.png" alt="">
+                <div class="overlay">
+                    <h3>Projet 3</h3>
+                    <p>Site web de e-commerce.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+ </section>
+
+  <!-- Section Contact -->
+  <section id="contact">
+    <h2>Contactez-moi</h2>
+  
+    <div class="contact-container">
+      <!-- Formulaire de contact -->
+      <div class="contact-form">
+        <h3>Envoyez-moi un message</h3>
+        <form action="form.php" method="POST">
+          <label for="name">Nom</label>
+          <input type="text" id="name" name="name" required>
+  
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+  
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="4" required></textarea>
+  
+          <button type="submit">Envoyer</button>
+        </form>
+      </div>
+  
+      <!-- Contact WhatsApp -->
+      <div class="contact-whatsapp">
+        <h3>Ou discutez sur WhatsApp</h3>
+        <p>Disponible pour toutes vos questions !</p>
+        <a href="https://wa.me/+23562293261" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Me contacter sur WhatsApp</a>
+      </div>
+    </div>
+     <!-- Bouton Devis -->
+     <div class="contact-devis">
+      <a href="devis.html" class="btn-devis">Demander un devis <i class="fas fa-arrow-right"></i></a>
+    </div>
+  </section>
+      
+    </div>
+  
+    <!-- Footer avec liens sociaux -->
+    <footer>
+      <div class="social-links">
+        <div class="carte">
+          <a href="https://www.facebook.com/61573493522016/" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
+        <div class="carte">
+          <a href="https://www.linkedin.com/in/boulga-djorwe-85a5a02a8/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BV8k1wzKkTu6t6LBNo51agg%3D%3D" target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+        </div>
+      </div>
+      <p>&copy; 2025 Djorwe Boulga - Tous droits réservés</p>
+    </footer>
+</html>

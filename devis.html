@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Développeur Web Fullstack spécialisé en PHP, Laravel, JavaScript">
+  <meta name="author" content="DJORWE BOULGA">
+  <meta name="robots" content="index, follow">
+  <title>Djorwe Boulga | Développeur Web Full-Stack</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://cdn.jsdelivr.net/npm/emailjs-com@2/dist/email.min.js"></script>
+</head>
+<body>
+  <!-- Navigation fixe en haut -->
+  <nav>
+    <ul>
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="index.html#propos">A propos</a></li>
+      <li><a href="index.html#services">Services</a></li>
+      <li><a href="portfolio.html">Portfolio</a></li>
+      <li><a href="devis.html">Obtenir un Devis</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- Section Devis -->
+  <header id="devis" class="hero">
+    <h1>Obtenez un devis personnalisé</h1>
+    <p>Remplissez le formulaire ci-dessous pour obtenir un devis pour vos besoins en développement web.</p>
+  </header>
+
+  <div class="container">
+    <!-- Section Devis -->
+    <section id="devis-form">
+      <h2>Formulaire de Demande de Devis</h2>
+      <p>Veuillez fournir les informations nécessaires afin que nous puissions vous proposer un devis adapté à vos besoins.</p>
+      
+      <!-- Formulaire de Devis -->
+      <form action="form.php" method="POST" >
+        <label for="name">Nom</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required>
+
+        <label for="project-type">Type de projet</label>
+        <select id="project-type" name="project-type" required>
+          <option value="site-web">Création de site web</option>
+          <option value="application-web">Développement d'application web</option>
+          <option value="e-commerce">Site e-commerce</option>
+          <option value="autre">Autre</option>
+        </select>
+
+        <label for="budget">Budget approximatif</label>
+        <input type="number" id="budget" name="budget" placeholder="Ex: 1000" required>
+
+        <label for="deadline">Date limite (si applicable)</label>
+        <input type="date" id="deadline" name="deadline">
+
+        <label for="message">Détails du projet</label>
+        <textarea id="message" name="message" rows="4" placeholder="Décrivez brièvement votre projet..." required></textarea>
+
+        <button type="submit">Obtenir le devis <i class="fas fa-arrow-right"></i></button>
+      </form>
+    </section>
+  </div>
+
+  <!-- Footer avec liens sociaux -->
+  <footer>
+    <div class="social-links">
+      <div class="carte">
+        <a href="https://www.facebook.com/61573493522016/" target="_blank">
+          <i class="fab fa-facebook-f"></i>
+        </a>
+      </div>
+      <div class="carte">
+        <a href="https://www.linkedin.com/in/boulga-djorwe-85a5a02a8/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BV8k1wzKkTu6t6LBNo51agg%3D%3D" target="_blank">
+          <i class="fab fa-linkedin"></i>
+        </a>
+      </div>
+    </div>
+    <p>&copy; 2025 Djorwe Boulga - Tous droits réservés</p>
+  </footer>
+</body>
+</html>
+  <script>
+    document.getElementById("devisForm").addEventListener("submit", function(event) {
+        event.preventDefault();
+
+        let formData = new FormData(this);
+
+        // Envoi des données à PHP
+        fetch("enregistrer_devis.php", {
+            method: "POST",
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                alert("Votre demande a été enregistrée !");
+
+                // Envoi de l'email via EmailJS
+                emailjs.init("VOTRE_USER_ID_EMAILJS"); // Remplace par ton USER ID
+                emailjs.send("VOTRE_SERVICE_ID", "VOTRE_TEMPLATE_ID", {
+                    to_email: formData.get("email"),
+                    nom: formData.get("name"),
+                    project_type: formData.get("project-type"),
+                    budget: formData.get("budget"),
+                    deadline: formData.get("deadline") || "Non spécifiée",
+                    message: formData.get("message")
+                })
+                .then(() => alert("Email de confirmation envoyé !"))
+                .catch(error => console.error("Erreur EmailJS :", error));
+            } else {
+                alert("Erreur : " + data.error);
+            }
+        })
+        .catch(error => console.error("Erreur :", error));
+    });
+</script>
+
+<style type="text/css">
+    /* Mise en page générale */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f9;
+  }
+  
+  /* Navigation */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #3b5998;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    z-index: 1000;
+    padding: 10px 0;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+  }
+  nav ul li {
+    margin: 0 15px;
+  }
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: background-color 0.3s;
+  }
+  nav ul li a:hover {
+    background-color: #2d4373;
+    border-radius: 4px;
+  }
+  
+  /* Section Hero */
+  .hero {
+    background-color: #3b5998;
+    color: white;
+    padding: 100px 0;
+    text-align: center;
+  }
+  
+  .hero h1 {
+    font-size: 2.5em;
+    margin: 0;
+  }
+  
+  .hero p {
+    font-size: 1.2em;
+    margin-top: 20px;
+  }
+  
+  /* Container Principal */
+  .container {
+    width: 80%;
+    margin: 50px auto;
+  }
+  
+ /* Formulaire de devis */
+#devis-form {
+  background-color: white;
+  padding: 30px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  width: 80%; 
+  max-width: 600px; 
+  margin: 0 auto; 
+}
+
+/* Titre du formulaire */
+#devis-form h2 {
+  text-align: center;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* Texte d'introduction */
+#devis-form p {
+  text-align: center;
+  font-size: 1.1em;
+  margin-bottom: 20px;
+}
+
+/* Styles des champs de formulaire */
+form label {
+  font-size: 1.1em;
+  margin: 10px 0 5px;
+  display: block;
+}
+
+form input, form select, form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1em;
+}
+
+form textarea {
+  resize: vertical;
+}
+
+form button {
+  background-color: #3b5998;
+  color: white;
+  padding: 12px 25px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1.1em;
+  cursor: pointer;
+}
+
+form button:hover {
+  background-color: #2d4373;
+}
+
+  
+  /* Footer */
+  footer {
+    background-color: #3b5998;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    justify-items: center;
+  }
+  
+  footer .social-links {
+    margin-bottom: 20px;
+  }
+  
+  footer .carte {
+    display: inline-block;
+    margin: 0 15px;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 5px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    transition: background-color 0.3s ease;
+  }
+  
+  footer .carte a {
+    color: white;
+    font-size: 1.5em;
+  }
+  
+  .carte:hover {
+    background-color: #575757;
+  }
+  
+  footer p {
+    margin-top: 20px;
+    font-size: 1em;
+  }  
+  /* Footer avec liens sociaux en bas de page */
+  footer {
+    background-color: #3b5998;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    justify-items: center;
+  }
+ 
+  footer .social-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+  }
+  footer .social-links a:hover {
+    color: #ddd;
+  }
+
+  /* General Styles for Devis Page */
+  body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+  padding: 0;
+      box-sizing: border-box;
+      background-color: #f4f4f9;
+  }
+  
+  /* Navigation */
+  nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      background-color: #3b5998;
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      z-index: 1000;
+      padding: 10px 0;
+  }
+  
+  nav ul {
+          flex-direction: row; /* Ensure items are in a row */
+          justify-content: center; /* Center items */
+          flex-wrap: wrap; /* Allow wrapping */
+      }
+      
+      nav ul li {
+          flex: 0 0 0 25%; /* Allow two items per line */
+      }
+  
+  nav ul li a {
+      color: #fff;
+      text-decoration: none;
+      padding: 8px 12px;
+      transition: background-color 0.3s;
+  }
+  
+  nav ul li a:hover {
+      background-color: #2d4373;
+      border-radius: 4px;
+  }
+  
+  /* Section Hero */
+  .hero {
+      background-color: #3b5998;
+      color: white;
+      padding: 100px 0;
+      text-align: center;
+  }
+  
+  .hero h1 {
+      font-size: 2.5em;
+      margin: 0;
+  }
+  
+  .hero p {
+      font-size: 1.2em;
+      margin-top: 20px;
+  }
+  
+  /* Container Principal */
+  .container {
+      width: 80%;
+      margin: 50px auto;
+  }
+  
+  /* Formulaire de devis */
+  #devis-form {
+      background-color: white;
+      padding: 30px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 8px;
+      width: 80%; 
+      max-width: 600px; 
+      margin: 0 auto; 
+  }
+  
+
+  /* Responsive Design for Android */
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center; /* Center items */
+    flex-wrap: wrap; /* Allow wrapping if necessary */
+    padding: 0;
+    margin: 0;
+}
+
+nav ul li {
+    margin: 0 0 15px; /* Space between items */
+    flex: 0 0 auto; /* Allow items to size based on content */
+}
+@media (max-width: 768px) {
+    nav ul {
+        flex-direction: row; /* Ensure items are in a row */
+        justify-content: center; /* Center items */
+    }
+
+    nav ul li {
+        flex: 0 0 0 25%; /* Allow two items per line */
+        text-align: center; /* Center text inside each item */
+    }
+}
+</style>

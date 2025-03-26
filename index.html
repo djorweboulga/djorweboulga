@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Développeur Web Fullstack spécialisé en PHP, Laravel, JavaScript">
+  <meta name="author" content="DJORWE BOULGA">
+  <meta name="robots" content="index, follow">  
+  <title>Djorwe Boulga | Développeur Web Full-Stack</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+  integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+  crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="style.css">
+  <link rel="script" href="script.js" >
+</head>
+<body>
+
+  <!-- Navigation fixe en haut -->
+    <nav>
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="#propos">A propos</a></li>
+        <li><a href="#services">Services</a></li>
+        <li><a href="portfolio.html">Portfolio</a></li>
+        <li><a href="devis.html">Obtenir un Devis</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  
+    <!-- Section Accueil avec image d’arrière-plan -->
+    <header id="home" class="hero">
+      <h1>Bienvenue sur mon site de Développeur Web Fullstack</h1>
+    </header>
+  
+    <div class="container" id="propos">
+      <!-- Section À propos avec photo de profil -->
+       <div id="propos"></div>
+      <section id="apropos">
+        <img src="profile.png" alt="Ma photo de profil" class="profile-pic">
+        <div>
+          <h2 id="nom">DJORWE BOULGA</h2>
+          <p>
+            Je suis un développeur web fullstack passionné par la création d'applications web dynamiques 
+            et responsives. Je maîtrise aussi bien le développement front-end que le back-end, en utilisant 
+            des technologies modernes comme JavaScript et d'autres outils innovants. <br /> <br />
+            Mon objectif est de concevoir des solutions web performantes, évolutives et adaptées aux besoins 
+            des utilisateurs, en mettant l'accent sur une expérience fluide et sécurisée. <br/> Je travaille avec 
+            des technologies comme HTML5, CSS3, PhP, MySQL et bien d'autres pour offrir des applications de 
+            qualité, robustes et faciles à maintenir.
+          </p>
+        </div>
+      </section>
+
+      <!-- Section Service-->
+      <section class="services" id="services">
+        <div class="container">
+          <h2>Mes Services</h2>
+          <div class="services-grid">
+            <div class="service-card" data-aos="fade-up" data-aos-delay="100">
+              <i class="fas fa-server"></i>
+              <h3>Développement Back-end</h3>
+              <p>Développement d'applications web back-end avec PHP et frameworks comme Laravel.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="200">
+              <i class="fas fa-code"></i>
+              <h3>Développement Front-end</h3>
+              <p>Développement d'applications web front-end avec HTML5, CSS3 et JavaScript.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="300">
+              <i class="fas fa-database"></i>
+              <h3>Intégration de CMS</h3>
+              <p>Intégration de CMS avec WordPress Joomla pour votre site web.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="400">
+              <i class="fas fa-chart-bar"></i>
+              <h3>Développement de dashboards</h3>
+              <p>Création de dashboards avec technologies comme Laravel, WordPress.</p>
+            </div>
+            <div class="service-card" data-aos="fade-up" data-aos-delay="600">
+              <i class="fas fa-chart-line"></i>
+              <h3>Analyse et conception de données</h3>
+              <p>Analyse et conception de données pour vos applications web.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+     
+      <!-- Projets-->
+      <section class="projects">
+        <div class="container">
+            <h2>Mes Réalisations</h2>
+            <div class="projects-grid">
+                <div class="project-card">
+                    <img src="projet-1.png" alt="project 1">
+                    <h3>Projet 1</h3>
+                    <p> Conception de mon site web portfolio, mettant en avant mes compétences et projets.</p>
+                </div>
+                <div class="project-card">
+                    <img src="projet-2.png" alt="project 2">
+                    <h3>Projet 2</h3>
+                    <p>
+                      Conception d'un site web hôtel dynamique, avec navigation fluide, réservations en ligne 
+                      et présentation des services et chambres.
+                    </p>
+                </div>
+                <div class="project-card">
+                    <img src="projet-3.png" alt="project 3">
+                    <h3>Projet 3</h3>
+                    <p>
+                      Création d'un site e-commerce responsive, avec gestion des produits, paiement sécurisé 
+                      et suivi des commandes.
+                    </p>
+                </div>
+            </div>
+        </div>
+     </section>
+      
+      <!-- Section Contact -->
+    <section id="contact">
+      <h2>Contactez-moi</h2>
+  
+      <div class="contact-container">
+          <!-- Formulaire de contact -->
+          <div class="contact-form">
+              <h3>Envoyez-moi un mail avec les détails du projet.</h3>
+              <form method="POST" action="form.php">
+                  <input type="text" name="nom" placeholder="Votre nom" required>
+                  <input type="email" name="mail" placeholder="Votre email" required>
+                  <input type="text" name="objet" placeholder="Objet" required>
+                  <textarea name="message" placeholder="Votre message" required></textarea>
+                  <button type="submit">Envoyer</button>
+              </form>
+          </div>
+      
+          <!-- Contact WhatsApp -->
+          <div class="contact-whatsapp">
+            <h3>Ou discutez sur WhatsApp</h3>
+            <p>Disponible pour toutes vos questions !</p>
+            <a href="https://wa.me/+23562293261" target="_blank" class="whatsapp-btn"><i class="fab fa-whatsapp"></i> Me contacter sur WhatsApp</a>
+          </div>
+        </div>
+          <!-- Bouton Devis -->
+        <div class="contact-devis">
+          <a href="devis.html" class="btn-devis">Demander un devis</a>
+        </div>
+  </div>
+      </section>
+      
+    </div>
+  
+    <!-- Footer avec liens sociaux -->
+    <footer>
+      <div class="social-links">
+        <div class="carte">
+          <a href="https://www.facebook.com/61573493522016/" target="_blank">
+            <i class="fab fa-facebook-f"></i>
+          </a>
+        </div>
+        <div class="carte">
+          <a href="https://www.linkedin.com/in/boulga-djorwe-85a5a02a8/?lipi=urn%3Ali%3Apage%3Ad_flagship3_feed%3BV8k1wzKkTu6t6LBNo51agg%3D%3D" target="_blank">
+            <i class="fab fa-linkedin"></i>
+          </a>
+        </div>
+        </div>
+      </div>
+      <p>&copy; 2025 Djorwe Boulga - Tous droits réservés</p>
+    </footer>
+</html>

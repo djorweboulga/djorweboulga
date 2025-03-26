@@ -1,0 +1,514 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    color: #333;
+    margin-top: 60px; /* espace pour le menu fixe */
+  }
+  /* Section Accueil avec image d’arrière-plan */
+  header.hero {
+    width: 100%;
+    height: 350px;
+    background: url("it-background.jpg") center center/cover no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-shadow: 1px 1px 4px rgba(0,0,0,0.7);
+  }
+  header.hero h1 {
+    font-size: 2.5em;
+  }
+  /* Navigation fixe en haut */
+  nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #3b5998;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    padding: 10px 0;
+  }
+  nav ul {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+  }
+  nav ul li {
+    margin: 0 15px;
+  }
+  nav ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 8px 12px;
+    transition: background-color 0.3s;
+  }
+  nav ul li a:hover {
+    background-color: #2d4373;
+    border-radius: 4px;
+  }
+
+  @media (max-width: 768px) {
+    nav ul {
+      flex-direction: column;
+      align-items: center;
+    }
+    nav ul li {
+      margin: 5px 0;
+    }
+  }
+
+  .container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+  }
+  .container #nom{
+    text-align: left;nav {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #3b5998;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+        padding: 5px 0; /* Reduced padding */
+    }
+    
+    body {
+        margin-top: 50px; /* Adjust margin to accommodate smaller nav bar */
+    }
+    margin-left: 50px;
+  }
+  section {
+    background-color: #fff;
+    padding: 20px;
+    margin: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0 0 5px rgba(0,0,0,0.1);
+  }
+  /* Section À propos avec photo de profil */
+  #apropos {
+    display: flex;
+    align-items: center;
+  }
+  #apropos img.profile-pic {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+    object-fit: cover;
+  }
+   /*  service  */   
+   .services-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 20px;
+    padding-top: 25px;
+}
+.services .container h2{
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 40px; /* Augmente l'espace entre les cartes */
+  padding: 20px; /* Ajoute un peu d'espace autour du conteneur */
+}
+
+.service-card {
+  flex: 1;
+  min-width: 270px; /* Légèrement plus large */
+  max-width: 320px;
+  padding: 25px;
+  text-align: center;
+  background: white;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  border-radius: 10px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.service-card:hover {
+  transform: scale(1.07);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+
+.details-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.details-content {
+    background: white;
+    padding: 20px;
+    width: 50%;
+    margin: 10% auto;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.close-btn {
+    color: red;
+    font-size: 24px;
+    cursor: pointer;
+    float: right;
+}
+  /* Section Portfolio avec grille de projets */
+  #portfolio .projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+  }
+  .project {
+    background-color: #f4f4f4;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: transform 0.3s;
+  }
+  .container h2 {
+    text-align: center;
+  }
+  .project:hover {
+    transform: scale(1.05);
+  }
+
+  /* Styles de la fenêtre modale pour les projets */
+  .projects{
+    padding: 50px 15px;
+}
+.projects h2{
+    text-align: center;
+    margin-bottom: 40px;
+    font-size: 2.5rem;
+    color: black;
+}
+
+.projects-grid{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(300px,1fr));
+    gap: 20px;
+}
+.project-card{
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.project-card:hover{
+    transform: translateY(-10px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+.project-card img{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+.project-card h3{
+    font-size: 1.5rem;
+    margin: 20px 0 10px;
+    color: black;
+}
+.project-card p{
+    font-size: 1rem;
+    color: #555;
+}
+
+.portfolio-header{
+  padding: 100px 15px;
+  background-color: #001f3f;
+  color: #fff;
+  text-align: center;
+}
+.portfolio-gallery .gallery-grid{
+  display: grid;
+  gap: 20px;
+  margin-top: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+}
+.portfolio-gallery .gallery-item{
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+.portfolio-gallery .gallery-item img{
+  width: 100%;
+  display: block;
+  transition: transform 0.3s ease;
+  height: auto; /* Ensure images scale correctly */
+}
+.portfolio-gallery .gallery-item:hover img{
+  transform: scale(1.1);
+}
+.portfolio-gallery .overlay{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  text-align: center;
+}
+.portfolio-gallery .gallery-item:hover .overlay{
+  opacity: 1;
+}
+
+.portfolio-testimonials{
+  padding: 50px 15px;
+  background: #f9f9f9;
+  text-align: center;
+}
+.portfolio-testimonials .testimonial{
+  width: 600px;
+  margin: 0 auto 20px;
+  font-style: italic;
+  color: #333;
+}
+.portfolio-testimonials .testimonial h3{
+  margin-top: 10px;
+  font-weight: bold;
+  color: #003366;
+}
+.portfolio-contact{
+  padding: 50px 15px;
+  text-align: center;
+  background: #003366;
+  color: #fff;
+}
+
+.portfolio-contact .btn{
+  display: inline-block;
+  padding: 10px 20px;
+  background: #ff9900;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background 0.3s ease;
+}
+.portfolio-contact .btn:hover{
+  background: #cc7a00;
+}
+
+/* portfolio*/
+
+.portfolio-gallery .gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+@media (max-width: 768px) {
+  .portfolio-gallery .gallery-grid {
+    grid-template-columns: 1fr; /* Stack items on smaller screens */
+  }
+}
+
+/* formulaire de contact */
+  #contact {
+    padding: 50px 20px;
+    text-align: center;
+    background: #f9f9f9;
+  }
+  
+  .contact-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    max-width: 900px;
+    margin: auto;
+  }
+  
+  .contact-form, .contact-whatsapp {
+    flex: 1;
+    min-width: 300px;
+    padding: 20px;
+  }
+  
+  .contact-form {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .contact-form input, .contact-form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .contact-form button {
+    background: #3b5998;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
+  
+  .contact-form button:hover {
+    background: #2d4373;
+  }
+  
+  .contact-whatsapp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .whatsapp-btn {
+    display: inline-block;
+    padding: 12px 20px;
+    background: #25D366;
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    text-decoration: none;
+    margin-top: 10px;
+  }
+  
+  .whatsapp-btn:hover {
+    background: #1ebe57;
+  }
+  
+  /* Style pour le bouton Devis */
+.contact-devis {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.btn-devis {
+  display: inline-block;
+  background-color: #3b5998;
+  color: white;
+  padding: 12px 30px;
+  font-size: 1.1em;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-devis:hover {
+  background-color: #2d4373;
+}
+
+
+  /* Footer avec liens sociaux en bas de page */
+  footer {
+    background-color: #3b5998;
+    color: #fff;
+    text-align: center;
+    padding: 15px 0;
+    margin-top: 40px;
+    justify-items: center;
+  }
+ 
+  footer .social-links a {
+    color: #fff;
+    margin: 0 10px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: color 0.3s;
+  }
+  footer .social-links a:hover {
+    color: #ddd;
+  }
+
+  .carte {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 5px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+    line-height: 50px;
+    transition: background-color 0.3s ease;
+  }
+  .carte:hover {
+    background-color: #575757;
+  }
+  
+  /* Responsive design */
+  @media (max-width: 768px){
+    #apropos {
+      flex-direction: column;
+      text-align: center;
+    }
+    #apropos img.profile-pic {
+      margin: 0 0 15px 0;
+    }
+    .profile-pic {
+        width: 100%;
+      }
+     .projects {
+        grid-template-columns: 1fr;
+      }
+     .project {
+        margin-bottom: 20px;
+     }
+  }
+  
+  
+  @media (max-width: 768px) {
+      nav ul {
+          flex-direction: row; /* Ensure items are in a row */
+          justify-content: center; /* Center items */
+          flex-wrap: wrap; /* Allow wrapping */
+      }
+      
+      nav ul li {
+          flex: 0 0 0 25%; /* Allow two items per line */
+          text-align: center; /* Center text inside each item */
+      }
+  }
+
+  @media (max-width: 768px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr); /* Two columns on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .projects-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+}
